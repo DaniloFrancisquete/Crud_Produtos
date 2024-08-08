@@ -1,35 +1,45 @@
-<div>
-  <h2>Adicionar Novo Produto</h2>
-  <form (ngSubmit)="addProduct()">
-    <mat-form-field appearance="fill">
-      <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="newProduct.name" name="name" required>
-    </mat-form-field>
+<div class="container">
+  <main class="main-content">
+    <section class="add-product">
+      <h2>Adicionar Novo Produto</h2>
+      <form (ngSubmit)="addProduct()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput [(ngModel)]="newProduct.name" name="name" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="newProduct.description" name="description">
-    </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Descrição</mat-label>
+          <input matInput [(ngModel)]="newProduct.description" name="description">
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Preço</mat-label>
-      <input matInput type="number" [(ngModel)]="newProduct.price" name="price" required>
-    </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Preço</mat-label>
+          <input matInput type="number" [(ngModel)]="newProduct.price" name="price" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Quantidade em Estoque</mat-label>
-      <input matInput type="number" [(ngModel)]="newProduct.stock" name="stock" required>
-    </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Quantidade em Estoque</mat-label>
+          <input matInput type="number" [(ngModel)]="newProduct.stock" name="stock" required>
+        </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Adicionar</button>
-  </form>
+        <button mat-raised-button color="primary" type="submit" class="full-width">Adicionar</button>
+      </form>
 
-  <div *ngIf="isLoading">Carregando...</div>
+      <div *ngIf="isLoading" class="loading">Carregando...</div>
+    </section>
 
-  <h2>Lista de Produtos</h2>
-  <mat-list>
-    <mat-list-item *ngFor="let product of products">
-      {{ product.name }} - {{ product.price | currency }} - {{ product.stock }} em estoque
-    </mat-list-item>
-  </mat-list>
+    <section class="product-list">
+      <h2>Lista de Produtos</h2>
+      <mat-list>
+        <mat-list-item *ngFor="let product of products">
+          {{ product.name }} - {{ product.price | currency }} - {{ product.stock }} em estoque
+        </mat-list-item>
+      </mat-list>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Gestão de Produtos</p>
+  </footer>
 </div>

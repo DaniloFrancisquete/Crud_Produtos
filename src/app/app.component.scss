@@ -1,0 +1,62 @@
+/* Estilo do Navegador */
+nav {
+  background-color: #1e3a8a; /* Cor azul escura */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.logout-button {
+  background-color: #3b82f6; /* Azul médio */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #1e3a8a; /* Azul escuro */
+}
+
+/* Estilo do Rodapé */
+.footer {
+  background-color: #1e3a8a; /* Cor azul escura */
+  color: black;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 32px;
+  font-family: Roboto, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.8); /* Branco com transparência */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+footer p {
+  margin: 0;
+}

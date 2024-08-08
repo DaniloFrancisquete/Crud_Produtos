@@ -1,60 +1,57 @@
 <div class="register-container">
-  <mat-toolbar color="accent">
-    <span>Registro</span>
-  </mat-toolbar>
+  <div class="main-content">
+    <mat-card class="register-form">
+      <mat-card-header>
+        <div mat-card-avatar class="register-icon">
+          <mat-icon>person_add</mat-icon>
+        </div>
+        <mat-card-title>Crie sua conta</mat-card-title>
+        <mat-card-subtitle>Preencha os dados abaixo</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="onRegister()">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="name" name="name" required>
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="!name">Nome é obrigatório</mat-error>
+          </mat-form-field>
 
-  <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar class="register-icon">
-        <mat-icon>person_add</mat-icon>
-      </div>
-      <mat-card-title>Crie sua conta</mat-card-title>
-      <mat-card-subtitle>Preencha os dados abaixo</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <form (ngSubmit)="onRegister()">
-        <mat-form-field appearance="outline">
-          <mat-label>Nome</mat-label>
-          <input matInput [(ngModel)]="name" name="name" required>
-          <mat-icon matSuffix>account_circle</mat-icon>
-          <mat-error *ngIf="!name">Nome é obrigatório</mat-error>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>CPF ou CNPJ</mat-label>
+            <input matInput [(ngModel)]="taxNumber" name="taxNumber" required>
+            <mat-icon matSuffix>assignment_ind</mat-icon>
+            <mat-error *ngIf="!taxNumber">CPF ou CNPJ é obrigatório</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>CPF ou CNPJ</mat-label>
-          <input matInput [(ngModel)]="taxNumber" name="taxNumber" required>
-          <mat-icon matSuffix>assignment_ind</mat-icon>
-          <mat-error *ngIf="!taxNumber">CPF ou CNPJ é obrigatório</mat-error>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" [(ngModel)]="mail" name="mail" required>
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="!mail">E-mail é obrigatório</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>E-mail</mat-label>
-          <input matInput type="email" [(ngModel)]="mail" name="mail" required>
-          <mat-icon matSuffix>email</mat-icon>
-          <mat-error *ngIf="!mail">E-mail é obrigatório</mat-error>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input matInput [(ngModel)]="phone" name="phone" required>
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="!phone">Telefone é obrigatório</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Telefone</mat-label>
-          <input matInput [(ngModel)]="phone" name="phone" required>
-          <mat-icon matSuffix>phone</mat-icon>
-          <mat-error *ngIf="!phone">Telefone é obrigatório</mat-error>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" [(ngModel)]="password" name="password" required>
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-error *ngIf="!password">Senha é obrigatória</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Senha</mat-label>
-          <input matInput type="password" [(ngModel)]="password" name="password" required>
-          <mat-icon matSuffix>lock</mat-icon>
-          <mat-error *ngIf="!password">Senha é obrigatória</mat-error>
-        </mat-form-field>
-
-        <div class="button-container">
           <button mat-raised-button color="accent" type="submit" [disabled]="!name || !taxNumber || !mail || !phone || !password">
             Registrar
           </button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
+
+</div>
