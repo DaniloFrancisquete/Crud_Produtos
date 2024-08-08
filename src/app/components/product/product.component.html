@@ -1,0 +1,33 @@
+<div class="product-container">
+  <mat-card>
+    <mat-card-title>Adicionar Novo Produto</mat-card-title>
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="newProduct.name" name="name" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <input matInput [(ngModel)]="newProduct.description" name="description">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" [(ngModel)]="newProduct.price" name="price" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Estoque</mat-label>
+      <input matInput type="number" [(ngModel)]="newProduct.stock" name="stock" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addProduct()" [disabled]="isLoading">
+      {{ isLoading ? 'Adicionando...' : 'Adicionar Produto' }}
+    </button>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Produtos</mat-card-title>
+    <mat-list>
+      <mat-list-item *ngFor="let product of products">
+        {{ product.name }} - {{ product.price | currency }} - {{ product.stock }} em estoque
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

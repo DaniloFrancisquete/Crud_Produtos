@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+.login-container, .register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #2196f3, #f44336);
+}
+
+mat-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+mat-toolbar {
+  width: 100%;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.login-icon, .register-icon {
+  background-color: #ff4081;
+  color: white;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px;
+}
