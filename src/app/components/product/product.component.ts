@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../product.service.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -9,10 +8,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProductComponent implements OnInit {
   products: any[] = [];
-  newProduct: any = { name: '', description: '', price: 0, stock: 0 };
-  isLoading: boolean = false;
+  newProduct = {
+    name: '',
+    description: '',
+    price: 0,
+    stock: 0
+  };
+  isLoading = false;
 
-  constructor(private productService: ProductService, private snackBar: MatSnackBar) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -21,28 +25,29 @@ export class ProductComponent implements OnInit {
   loadProducts(): void {
     this.isLoading = true;
     this.productService.getAllProducts().subscribe(
-      products => {
+      (data: any[]) => {
+        this.products = data;
         this.isLoading = false;
-        this.products = products;
       },
-      error => {
+      (error) => {
+        console.error('Erro ao carregar produtos', error);
         this.isLoading = false;
-        this.snackBar.open('Erro ao carregar produtos.', 'Fechar', { duration: 3000 });
       }
     );
   }
 
   addProduct(): void {
+    this.isLoading = true;
     this.productService.createProduct(this.newProduct).subscribe(
-      response => {
-        this.snackBar.open('Produto adicionado com sucesso!', 'Fechar', { duration: 3000 });
+      () => {
         this.loadProducts();
+        this.newProduct = { name: '', description: '', price: 0, stock: 0 };
+        this.isLoading = false;
       },
-      error => {
-        this.snackBar.open('Erro ao adicionar produto.', 'Fechar', { duration: 3000 });
+      (error) => {
+        console.error('Erro ao adicionar produto', error);
+        this.isLoading = false;
       }
     );
   }
-
-  // Implementar métodos para editar e excluir produtos aqui
 }

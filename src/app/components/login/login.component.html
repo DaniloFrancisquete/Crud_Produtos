@@ -1,17 +1,24 @@
 <div class="login-container">
-  <form (ngSubmit)="onLogin()">
-    <mat-form-field appearance="fill">
-      <mat-label>CPF ou CNPJ</mat-label>
-      <input matInput [(ngModel)]="taxNumber" name="taxNumber" required>
-    </mat-form-field>
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onLogin()" class="login-form">
+        <mat-form-field appearance="fill">
+          <mat-label>CPF ou CNPJ</mat-label>
+          <input matInput [(ngModel)]="taxNumber" name="taxNumber" required>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Senha</mat-label>
-      <input matInput type="password" [(ngModel)]="password" name="password" required>
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" [(ngModel)]="password" name="password" required>
+        </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
-      {{ isLoading ? 'Entrando...' : 'Entrar' }}
-    </button>
-  </form>
+        <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
+          {{ isLoading ? 'Entrando...' : 'Entrar' }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
