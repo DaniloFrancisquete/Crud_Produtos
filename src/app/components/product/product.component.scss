@@ -1,6 +1,4 @@
-/* product.component.scss */
 
-/* Container principal */
 .container {
   display: flex;
   flex-direction: column;
@@ -9,33 +7,33 @@
   box-sizing: border-box;
 }
 
-/* Main content area */
+
 .main-content {
   flex: 1;
 }
 
-/* Section for adding products */
+
 .add-product {
   margin-bottom: 20px;
 }
 
-/* Form fields */
+
 mat-form-field {
   display: block;
   margin-bottom: 16px;
 }
 
-/* Button styling */
+
 button {
   margin-top: 16px;
 }
 
-/* Section for listing products */
+
 .product-list {
   margin-top: 20px;
 }
 
-/* Card styling for products */
+
 .product-card {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -44,20 +42,17 @@ button {
   background-color: #f9f9f9;
 }
 
-/* Add scroll to main content if needed */
+
 .main-content {
   overflow-y: auto;
 }
 
-/* Make sure the whole page scrolls if content is too long */
+
 html, body {
   height: 100%;
   margin: 0;
 }
 
-/* product.component.scss */
-
-/* Exemplo de CSS para os ícones e layout */
 .product-card {
   border: 1px solid #ccc;
   padding: 16px;
@@ -70,4 +65,9 @@ button.mat-icon-button {
   position: absolute;
   top: 16px;
   right: 16px;
+}
+
+.container-logout{
+  display: flex;
+  justify-content: end;
 }

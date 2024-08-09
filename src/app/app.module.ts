@@ -19,7 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatDialogModule } from '@angular/material/dialog'; // Importa MatDialogModule
+import { MatDialogModule } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -51,13 +51,13 @@ import { EditProductDialogComponent } from './components/edit-product-dialog/edi
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
-    MatDialogModule, // Inclui MatDialogModule
+    MatDialogModule,
     RouterModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmDialogComponent] // Inclui ConfirmDialogComponent como entry component se necessário
+  entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule { }

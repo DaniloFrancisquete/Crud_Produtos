@@ -1,12 +1,1 @@
-<ng-container *ngIf="authService.isLoggedIn(); else login">
-  <nav>
-    <a routerLink="/products" class="nav-link">Produtos</a>
-    <a routerLink="/register" class="nav-link">Criar Conta</a>
-    <button (click)="logout()" class="logout-button">Logout</button>
-  </nav>
-  <router-outlet></router-outlet>
-</ng-container>
-
-<ng-template #login>
-  <app-login></app-login>
-</ng-template>
+<router-outlet></router-outlet>

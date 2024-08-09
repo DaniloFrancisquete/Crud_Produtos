@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductService } from '../../service/product.service.service';
-import { EditProductDialogComponent } from '../edit-product-dialog/edit-product-dialog.component'; // Certifique-se de que o caminho está correto
+import { EditProductDialogComponent } from '../edit-product-dialog/edit-product-dialog.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -19,10 +20,14 @@ export class ProductComponent implements OnInit {
   };
   isLoading = false;
 
-  constructor(private productService: ProductService, private dialog: MatDialog) {}
+  constructor(private productService: ProductService, private dialog: MatDialog,private router: Router) {}
 
   ngOnInit(): void {
     this.loadProducts();
+  }
+
+  logout(): void {
+    this.router.navigate(['/login']);
   }
 
   loadProducts(): void {

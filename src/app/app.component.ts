@@ -8,10 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor() {}
 
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
 }

@@ -56,7 +56,9 @@ export class RegisterComponent {
       });
     }
   }
-
+  goToLogin(): void {
+    this.router.navigate(['/login']);
+  }
   private isFormValid(): boolean {
     return this.name !== '' && this.taxNumber !== '' && this.mail !== '' && this.phone !== '' && this.password !== '';
   }

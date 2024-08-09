@@ -1,4 +1,4 @@
-/* Estilo avançado para o modal de confirmação */
+
 .mat-dialog-container {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -11,7 +11,7 @@
 .mat-dialog-title {
   font-weight: 600;
   font-size: 1.25rem;
-  color: #1e3a8a; /* Cor de título em tom de azul */
+  color: #1e3a8a;
   border-bottom: 2px solid #1e3a8a;
   padding-bottom: 12px;
   margin-bottom: 16px;
@@ -19,15 +19,15 @@
 
 .mat-dialog-content {
   font-size: 1rem;
-  color: #4a4a4a; /* Cor de texto mais suave */
-  text-align: center; /* Centraliza o texto dentro do modal */
+  color: #4a4a4a;
+  text-align: center;
   margin-bottom: 16px;
 }
 
 .mat-dialog-actions {
   display: flex;
-  justify-content: flex-end; /* Alinha os botões à direita */
-  gap: 8px; /* Espaçamento entre os botões */
+  justify-content: flex-end;
+  gap: 8px;
   margin-top: 16px;
 }
 

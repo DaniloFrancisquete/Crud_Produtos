@@ -1,10 +1,13 @@
-<!-- product.component.html -->
+
 <div class="container">
   <main class="main-content">
     <section class="add-product">
+      <div class="container-logout">
+        <button mat-raised-button color="primary" type="submit" class="full-width" (click)="logout()">Logout</button>
+      </div>
       <h2>Adicionar Novo Produto</h2>
       <form (ngSubmit)="addProduct()">
-        <!-- Formulário de adição de produtos -->
+
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Nome</mat-label>
           <input matInput [(ngModel)]="newProduct.name" name="name" required>
