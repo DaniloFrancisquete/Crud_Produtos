@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../service/product.service.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'; // Certifique-se de ter um componente de diálogo de confirmação
+import { ProductService } from '../../service/product.service.service';
+import { EditProductDialogComponent } from '../edit-product-dialog/edit-product-dialog.component'; // Certifique-se de que o caminho está correto
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-product',
@@ -80,8 +81,22 @@ export class ProductComponent implements OnInit {
   }
 
   editProduct(product: any): void {
-    // Você pode abrir um formulário para editar o produto ou usar um modal
-    // Aqui está um exemplo simples usando o console
-    console.log('Editando produto:', product);
+    const dialogRef = this.dialog.open(EditProductDialogComponent, {
+      width: '500px',
+      data: { product }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.productService.updateProduct(product.id, result).subscribe(
+          () => {
+            this.loadProducts();
+          },
+          (error) => {
+            console.error('Erro ao atualizar produto', error);
+          }
+        );
+      }
+    });
   }
 }

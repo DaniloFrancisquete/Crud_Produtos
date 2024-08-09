@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-product-dialog',
@@ -7,20 +7,18 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./edit-product-dialog.component.scss']
 })
 export class EditProductDialogComponent {
-  product: any;
+  product = this.data.product;
 
   constructor(
     public dialogRef: MatDialogRef<EditProductDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.product = { ...data.product }; // Copia os dados do produto passado
-  }
+  ) {}
 
-  onConfirm(): void {
-    this.dialogRef.close(this.product); // Fecha o modal e retorna os dados do produto
+  onSave(): void {
+    this.dialogRef.close(this.product);
   }
 
   onCancel(): void {
-    this.dialogRef.close(); // Fecha o modal sem retornar dados
+    this.dialogRef.close();
   }
 }
