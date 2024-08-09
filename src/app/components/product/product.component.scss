@@ -57,21 +57,17 @@ html, body {
 
 /* product.component.scss */
 
-/* Card styling for products */
+/* Exemplo de CSS para os ícones e layout */
 .product-card {
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #ccc;
   padding: 16px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
+  margin-bottom: 16px;
+  border-radius: 8px;
   position: relative;
 }
 
-/* Container for action buttons */
-.product-actions {
-  display: flex;
-  gap: 8px;
+button.mat-icon-button {
   position: absolute;
+  top: 16px;
   right: 16px;
-  bottom: 16px;
 }

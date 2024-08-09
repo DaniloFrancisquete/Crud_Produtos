@@ -19,16 +19,21 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog'; // Importa MatDialogModule
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { EditProductDialogComponent } from './components/edit-product-dialog/edit-product-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProductComponent
+    ProductComponent,
+    ConfirmDialogComponent,
+    EditProductDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,11 +51,13 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
+    MatDialogModule, // Inclui MatDialogModule
     RouterModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmDialogComponent] // Inclui ConfirmDialogComponent como entry component se necessário
 })
 export class AppModule { }

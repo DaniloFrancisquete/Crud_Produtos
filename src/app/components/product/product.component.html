@@ -4,29 +4,25 @@
     <section class="add-product">
       <h2>Adicionar Novo Produto</h2>
       <form (ngSubmit)="addProduct()">
+        <!-- Formulário de adição de produtos -->
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Nome</mat-label>
           <input matInput [(ngModel)]="newProduct.name" name="name" required>
         </mat-form-field>
-
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Descrição</mat-label>
           <input matInput [(ngModel)]="newProduct.description" name="description">
         </mat-form-field>
-
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Preço</mat-label>
           <input matInput type="number" [(ngModel)]="newProduct.price" name="price" required>
         </mat-form-field>
-
         <mat-form-field appearance="fill" class="full-width">
           <mat-label>Quantidade em Estoque</mat-label>
           <input matInput type="number" [(ngModel)]="newProduct.stock" name="stock" required>
         </mat-form-field>
-
         <button mat-raised-button color="primary" type="submit" class="full-width">Adicionar</button>
       </form>
-
       <div *ngIf="isLoading" class="loading">Carregando...</div>
     </section>
 
@@ -37,15 +33,12 @@
         <p><strong>Descrição:</strong> {{ product.description || 'N/A' }}</p>
         <p><strong>Preço:</strong> {{ product.price | currency:'BRL' }}</p>
         <p><strong>Quantidade em Estoque:</strong> {{ product.stock }}</p>
-
-        <div class="product-actions">
-          <button mat-icon-button color="primary" (click)="editProduct(product)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button color="warn" (click)="deleteProduct(product.id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
+        <button mat-icon-button color="warn" (click)="confirmDelete(product.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="editProduct(product)">
+          <mat-icon>edit</mat-icon>
+        </button>
       </div>
     </section>
   </main>

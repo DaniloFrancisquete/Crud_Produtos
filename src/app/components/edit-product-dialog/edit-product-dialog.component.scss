@@ -1,0 +1,50 @@
+/* Estilo avançado para o modal de edição */
+.mat-dialog-container {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  background: #ffffff;
+  max-width: 500px;
+  margin: auto;
+}
+
+.mat-dialog-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #1e3a8a;
+  border-bottom: 2px solid #1e3a8a;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.mat-dialog-content {
+  font-size: 1rem;
+  color: #4a4a4a;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.mat-dialog-actions .mat-raised-button {
+  background-color: #1e3a8a;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.mat-dialog-actions .mat-raised-button:hover {
+  background-color: #172e6d;
+}
+
+.mat-dialog-actions .mat-flat-button {
+  color: #1e3a8a;
+}
+
+.mat-dialog-actions .mat-flat-button:hover {
+  background-color: #f0f0f0;
+}

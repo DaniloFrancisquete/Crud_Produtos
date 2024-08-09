@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Editar Produto</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="product.name" name="name" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Descrição</mat-label>
+    <input matInput [(ngModel)]="product.description" name="description">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Preço</mat-label>
+    <input matInput type="number" [(ngModel)]="product.price" name="price" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Quantidade em Estoque</mat-label>
+    <input matInput type="number" [(ngModel)]="product.stock" name="stock" required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onConfirm()">Salvar</button>
+</div>
+
