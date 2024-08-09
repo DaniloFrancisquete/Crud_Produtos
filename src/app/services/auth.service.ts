@@ -14,8 +14,8 @@ export class AuthService {
   login(taxNumber: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, { taxNumber, password }).pipe(
       tap(response => {
-        console.log('Resposta do login:', response); // Adicionando log para verificar a resposta
-        const token = response.token; // Verifique se a chave correta é 'token'
+        console.log('Resposta do login:', response);
+        const token = response.token;
         if (token) {
           this.setToken(token);
         } else {
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   setToken(token: string): void {
-    console.log('Token armazenado:', token); // Log do token armazenado
+    console.log('Token armazenado:', token);
     localStorage.setItem('authToken', token);
   }
 
@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   logout(): void {
-    console.log('Logout realizado'); // Log ao realizar logout
+    console.log('Logout realizado');
     localStorage.removeItem('authToken');
   }
 }

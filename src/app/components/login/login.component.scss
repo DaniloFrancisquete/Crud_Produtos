@@ -2,7 +2,7 @@
 .login-container {
   background: url('/assets/unnamed.png') no-repeat center center fixed;
   background-size: cover;
-  height: 100vh; /* Faz com que o contêiner ocupe toda a altura da tela */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,11 +10,11 @@
 
 .login-card {
   width: 100%;
-  max-width: 400px; /* Ajuste conforme necessário */
+  max-width: 400px;
   padding: 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+  background: rgba(255, 255, 255, 0.8);
 }
 
 mat-card-header {
@@ -47,7 +47,7 @@ button {
   padding: 12px;
   border-radius: 5px;
 }
-/* Link para criar usuário */
+
 .register-link {
   margin-top: 16px;
   text-align: center;

@@ -1,6 +1,5 @@
-/* Estilo do Navegador */
 nav {
-  background-color: #1e3a8a; /* Cor azul escura */
+  background-color: #1e3a8a;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -15,7 +14,7 @@ nav {
 }
 
 .logout-button {
-  background-color: #3b82f6; /* Azul médio */
+  background-color: #3b82f6;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -25,12 +24,11 @@ nav {
 }
 
 .logout-button:hover {
-  background-color: #1e3a8a; /* Azul escuro */
+  background-color: #1e3a8a;
 }
 
-/* Estilo do Rodapé */
 .footer {
-  background-color: #1e3a8a; /* Cor azul escura */
+  background-color: #1e3a8a;
   color: black;
   padding: 20px 0;
   position: fixed;
@@ -48,7 +46,7 @@ nav {
 }
 
 .footer-link {
-  color: rgba(255, 255, 255, 0.8); /* Branco com transparência */
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: color 0.3s ease;
 }

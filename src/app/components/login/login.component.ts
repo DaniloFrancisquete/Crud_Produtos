@@ -25,7 +25,8 @@ export class LoginComponent {
       this.authService.login(this.taxNumber, this.password).subscribe(
         response => {
           this.isLoading = false;
-          this.authService.setToken(response.token);
+          this.authService.setToken(response.data.token);
+          console.log(response.data.token)
           this.router.navigate(['/products']);
         },
         error => {
