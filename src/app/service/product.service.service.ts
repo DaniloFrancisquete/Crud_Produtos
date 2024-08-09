@@ -1,6 +1,9 @@
+// product.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +11,36 @@ import { Observable } from 'rxjs';
 export class ProductService {
   private apiUrl = 'https://interview.t-alpha.com.br/api/products';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
-  createProduct(product: { name: string; description?: string; price: number; stock: number }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/create-product`, product);
+  private getHeaders(): HttpHeaders {
+    const token = this.authService.getToken();
+    if (!token) {
+      throw new Error('Token não encontrado');
+    }
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
   }
 
-  getAllProducts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/get-all-products`);
+  createProduct(product: Product): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/create-product`, product, { headers: this.getHeaders() });
   }
 
-  getProduct(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/get-one-product/${id}`);
+  getAllProducts(): Observable<{ data: { products: Product[] } }> {
+    return this.http.get<{ data: { products: Product[] } }>(`${this.apiUrl}/get-all-products`, { headers: this.getHeaders() });
   }
 
-  updateProduct(id: number, product: { name: string; description?: string; price: number; stock: number }): Observable<any> {
-    return this.http.patch<any>(`${this.apiUrl}/update-product/${id}`, product);
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/get-one-product/${id}`, { headers: this.getHeaders() });
+  }
+
+  updateProduct(id: number, product: Product): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/update-product/${id}`, product, { headers: this.getHeaders() });
   }
 
   deleteProduct(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/delete-product/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/delete-product/${id}`, { headers: this.getHeaders() });
   }
 }

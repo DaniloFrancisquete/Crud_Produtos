@@ -1,3 +1,4 @@
+<!-- product.component.html -->
 <div class="container">
   <main class="main-content">
     <section class="add-product">
@@ -31,13 +32,21 @@
 
     <section class="product-list">
       <h2>Lista de Produtos</h2>
-      <mat-list>
-        <mat-list-item *ngFor="let product of products">
-          {{ product.name }} - {{ product.price | currency }} - {{ product.stock }} em estoque
-        </mat-list-item>
-      </mat-list>
+      <div *ngFor="let product of products" class="product-card">
+        <p><strong>Nome:</strong> {{ product.name }}</p>
+        <p><strong>Descrição:</strong> {{ product.description || 'N/A' }}</p>
+        <p><strong>Preço:</strong> {{ product.price | currency:'BRL' }}</p>
+        <p><strong>Quantidade em Estoque:</strong> {{ product.stock }}</p>
+
+        <div class="product-actions">
+          <button mat-icon-button color="primary" (click)="editProduct(product)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteProduct(product.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </section>
   </main>
-
-
 </div>

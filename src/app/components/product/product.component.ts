@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../service/product.service.service';
 
@@ -25,8 +26,8 @@ export class ProductComponent implements OnInit {
   loadProducts(): void {
     this.isLoading = true;
     this.productService.getAllProducts().subscribe(
-      (data: any[]) => {
-        this.products = data;
+      (response: any) => {
+        this.products = response.data.products; // Acessa o array de produtos corretamente
         this.isLoading = false;
       },
       (error) => {
@@ -40,12 +41,31 @@ export class ProductComponent implements OnInit {
     this.isLoading = true;
     this.productService.createProduct(this.newProduct).subscribe(
       () => {
-        this.loadProducts();
-        this.newProduct = { name: '', description: '', price: 0, stock: 0 };
+        this.loadProducts(); // Recarrega a lista de produtos
+        this.newProduct = { name: '', description: '', price: 0, stock: 0 }; // Reseta o formulário
         this.isLoading = false;
       },
       (error) => {
         console.error('Erro ao adicionar produto', error);
+        this.isLoading = false;
+      }
+    );
+  }
+
+  editProduct(product: any): void {
+    // Implementar lógica para editar o produto
+    console.log('Edit product:', product);
+  }
+
+  deleteProduct(id: number): void {
+    this.isLoading = true;
+    this.productService.deleteProduct(id).subscribe(
+      () => {
+        this.loadProducts(); // Recarrega a lista de produtos após exclusão
+        this.isLoading = false;
+      },
+      (error) => {
+        console.error('Erro ao excluir produto', error);
         this.isLoading = false;
       }
     );
